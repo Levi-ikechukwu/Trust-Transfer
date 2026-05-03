@@ -9,7 +9,7 @@ const App = () => {
   const [isSuccess, setIsSuccess] = useState(false);
 
   // Get your Paystack Public Key from your environment variables
-  const publicKey = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY || 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+  const publicKey = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY || 'pk_test_76dd117ff6f6e25a3293f73853a26297f668babc';
 
   const config = {
     reference: (new Date()).getTime().toString(),
