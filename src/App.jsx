@@ -14,7 +14,8 @@ const App = () => {
   const config = {
     reference: (new Date()).getTime().toString(),
     email: email,
-    amount: amount ? parseInt(amount, 10) * 100 : 0, // Paystack expects amount in kobo/pesewas
+    amount: amount ? parseInt(amount, 10) * 100 : 0, // Paystack expects amount in cents for USD
+    currency: 'USD',
     publicKey: publicKey,
   };
 
@@ -46,7 +47,7 @@ const App = () => {
             <CheckCircle />
           </div>
           <h2 className="card-title">Payment Successful!</h2>
-          <p className="card-subtitle">Thank you, {name}. Your payment of NGN {amount} has been received securely.</p>
+          <p className="card-subtitle">Thank you, {name}. Your payment of USD {amount} has been received securely.</p>
           <button className="reset-button" onClick={() => {
             setIsSuccess(false);
             setName('');
@@ -103,7 +104,7 @@ const App = () => {
           </div>
 
           <div className="form-group">
-            <label className="input-label">Amount (NGN)</label>
+            <label className="input-label">Amount (USD)</label>
             <div className="input-wrapper amount-input-wrapper">
               <DollarSign className="input-icon" />
               <input 
@@ -112,14 +113,14 @@ const App = () => {
                 placeholder="0.00" 
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                min="100"
+                min="1"
                 required
               />
             </div>
           </div>
 
           <button type="submit" className="pay-button">
-            Pay NGN {amount || '0'} Securely <ShieldCheck size={20} />
+            Pay USD {amount || '0'} Securely <ShieldCheck size={20} />
           </button>
         </form>
 
