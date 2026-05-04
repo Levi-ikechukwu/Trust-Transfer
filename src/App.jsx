@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { usePaystackPayment } from 'react-paystack';
+import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
 import { CreditCard, User, Mail, DollarSign, CheckCircle, ShieldCheck } from 'lucide-react';
 
 const App = () => {
@@ -8,26 +8,27 @@ const App = () => {
   const [amount, setAmount] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
 
-  // Get your Paystack Public Key from your environment variables
-  const publicKey = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY || 'pk_test_76dd117ff6f6e25a3293f73853a26297f668babc';
+  // Get your Flutterwave Public Key from your environment variables
+  const publicKey = import.meta.env.VITE_FLUTTERWAVE_PUBLIC_KEY || 'FLWPUBK_TEST-your-public-key-here';
 
   const config = {
-    reference: (new Date()).getTime().toString(),
-    email: email,
-    amount: amount ? parseInt(amount, 10) * 100 : 0, // Paystack expects amount in kobo/pesewas
-    publicKey: publicKey,
+    public_key: publicKey,
+    tx_ref: Date.now().toString(),
+    amount: amount ? parseFloat(amount) : 0,
+    currency: 'USD',
+    payment_options: 'card',
+    customer: {
+      email: email,
+      name: name,
+    },
+    customizations: {
+      title: 'Trust Transfer Payment',
+      description: 'Secure funds transfer',
+      logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
+    },
   };
 
-  const initializePayment = usePaystackPayment(config);
-
-  const onSuccess = (reference) => {
-    console.log('Payment complete! Reference: ', reference);
-    setIsSuccess(true);
-  };
-
-  const onClose = () => {
-    console.log('Payment closed.');
-  };
+  const handleFlutterPayment = useFlutterwave(config);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,7 +36,19 @@ const App = () => {
       alert("Please fill in all fields");
       return;
     }
-    initializePayment(onSuccess, onClose);
+    
+    handleFlutterPayment({
+      callback: (response) => {
+         console.log(response);
+         if (response.status === 'successful') {
+           setIsSuccess(true);
+         }
+         closePaymentModal();
+      },
+      onClose: () => {
+        console.log('Payment closed.');
+      },
+    });
   };
 
   if (isSuccess) {
@@ -46,7 +59,7 @@ const App = () => {
             <CheckCircle />
           </div>
           <h2 className="card-title">Payment Successful!</h2>
-          <p className="card-subtitle">Thank you, {name}. Your payment of NGN {amount} has been received securely.</p>
+          <p className="card-subtitle">Thank you, {name}. Your payment of USD {amount} has been received securely.</p>
           <button className="reset-button" onClick={() => {
             setIsSuccess(false);
             setName('');
@@ -103,7 +116,7 @@ const App = () => {
           </div>
 
           <div className="form-group">
-            <label className="input-label">Amount (NGN)</label>
+            <label className="input-label">Amount (USD)</label>
             <div className="input-wrapper amount-input-wrapper">
               <DollarSign className="input-icon" />
               <input 
@@ -119,13 +132,13 @@ const App = () => {
           </div>
 
           <button type="submit" className="pay-button">
-            Pay NGN {amount || '0'} Securely <ShieldCheck size={20} />
+            Pay USD {amount || '0'} Securely <ShieldCheck size={20} />
           </button>
         </form>
 
         <div className="footer">
           <div className="secure-badge">
-            <ShieldCheck size={14} /> Secured by Paystack
+            <ShieldCheck size={14} /> Secured by Flutterwave
           </div>
         </div>
       </div>
