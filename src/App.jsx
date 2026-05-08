@@ -308,7 +308,7 @@ const App = () => {
                   <h3
                     style={{
                       fontSize: "2.25rem",
-                      fontWeight: 600,
+                      fontWeight: 700,
                       color: "var(--accent)",
                       marginBottom: "0.5rem",
                     }}
@@ -325,7 +325,7 @@ const App = () => {
                   <h3
                     style={{
                       fontSize: "2.25rem",
-                      fontWeight: 600,
+                      fontWeight: 700,
                       color: "var(--accent)",
                       marginBottom: "0.5rem",
                     }}
@@ -342,7 +342,7 @@ const App = () => {
                   <h3
                     style={{
                       fontSize: "2.25rem",
-                      fontWeight: 600,
+                      fontWeight: 700,
                       color: "var(--accent)",
                       marginBottom: "0.5rem",
                     }}
@@ -445,23 +445,23 @@ const App = () => {
                 className="section-container"
                 style={{
                   padding: "6rem 3rem",
-                  background: "linear-gradient(135deg, var(--bg-card) 0%, #082f2b 100%)",
+                  background: "linear-gradient(135deg, var(--bg-card) 0%, #26210f 100%)",
                   borderRadius: "24px",
                   color: "var(--text-primary)",
                   textAlign: "center",
-                  boxShadow: "0 20px 40px -10px rgba(20, 184, 166, 0.15)",
-                  border: "1px solid rgba(20, 184, 166, 0.2)",
+                  boxShadow: "0 20px 40px -10px rgba(212, 175, 55, 0.15)",
+                  border: "1px solid rgba(212, 175, 55, 0.2)",
                   position: "relative",
                   overflow: "hidden"
                 }}
               >
-                <div style={{ position: "absolute", top: "-50%", left: "-10%", width: "50%", height: "200%", background: "radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 70%)", transform: "rotate(30deg)", pointerEvents: "none" }} />
-                <div style={{ position: "absolute", bottom: "-50%", right: "-10%", width: "50%", height: "200%", background: "radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 70%)", transform: "rotate(-30deg)", pointerEvents: "none" }} />
+                <div style={{ position: "absolute", top: "-50%", left: "-10%", width: "50%", height: "200%", background: "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)", transform: "rotate(30deg)", pointerEvents: "none" }} />
+                <div style={{ position: "absolute", bottom: "-50%", right: "-10%", width: "50%", height: "200%", background: "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)", transform: "rotate(-30deg)", pointerEvents: "none" }} />
                 
                 <h2
                   style={{
                     fontSize: "2.5rem",
-                    fontWeight: 600,
+                    fontWeight: 700,
                     marginBottom: "1.25rem",
                     color: "var(--text-primary)",
                     position: "relative",
@@ -494,7 +494,7 @@ const App = () => {
                     borderRadius: "12px",
                     position: "relative",
                     zIndex: 1,
-                    boxShadow: "0 10px 15px -3px rgba(20, 184, 166, 0.3)"
+                    boxShadow: "0 10px 15px -3px rgba(212, 175, 55, 0.3)"
                   }}
                   onClick={() => handleNav("transfer")}
                 >
@@ -611,7 +611,7 @@ const App = () => {
               <h3
                 style={{
                   fontSize: "2rem",
-                  fontWeight: 600,
+                  fontWeight: 700,
                   textAlign: "center",
                   marginBottom: "3rem",
                   color: "var(--text-primary)",
@@ -815,7 +815,7 @@ const App = () => {
             <div className="split-section" style={{ gap: "4rem", alignItems: "flex-start" }}>
               <div className="split-content">
                 <ScrollReveal delay={100}>
-                  <h3 style={{ fontSize: "1.8rem", fontWeight: 600, marginBottom: "2rem", color: "var(--text-primary)" }}>
+                  <h3 style={{ fontSize: "1.8rem", fontWeight: 700, marginBottom: "2rem", color: "var(--text-primary)" }}>
                     Get in Touch
                   </h3>
                   <div className="service-card mb-4" style={{ display: "flex", gap: "1.5rem", alignItems: "center", padding: "1.5rem" }}>
@@ -980,6 +980,35 @@ const App = () => {
           {renderContent()}
         </div>
       </main>
+
+      {/* Global Corporate Footer */}
+      <footer style={{ borderTop: "1px solid var(--border)", background: "var(--bg-card)", padding: "4rem 2rem 2rem", marginTop: "auto" }}>
+        <div className="section-container" style={{ padding: "0", display: "flex", flexDirection: "column", gap: "2rem" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "2rem" }}>
+            <div className="brand" onClick={() => handleNav("home")}>
+              <div className="brand-icon">
+                <Building2 color="#0B1120" size={24} />
+              </div>
+              <span className="brand-title">TRUST TRANSFER</span>
+            </div>
+            <div style={{ display: "flex", gap: "1.5rem", color: "var(--text-secondary)", fontSize: "0.9rem", flexWrap: "wrap" }}>
+              <span style={{ cursor: "pointer" }} onMouseOver={e => e.target.style.color = "var(--accent)"} onMouseOut={e => e.target.style.color = "var(--text-secondary)"}>Privacy Policy</span>
+              <span style={{ cursor: "pointer" }} onMouseOver={e => e.target.style.color = "var(--accent)"} onMouseOut={e => e.target.style.color = "var(--text-secondary)"}>Terms of Service</span>
+              <span style={{ cursor: "pointer" }} onMouseOver={e => e.target.style.color = "var(--accent)"} onMouseOut={e => e.target.style.color = "var(--text-secondary)"}>Security Whitepaper</span>
+            </div>
+          </div>
+          <div style={{ borderTop: "1px solid var(--border)", paddingTop: "2rem", color: "var(--text-secondary)", fontSize: "0.85rem", lineHeight: 1.6 }}>
+            <p style={{ marginBottom: "1rem" }}>
+              Trust Transfer is a financial technology company, not a traditional bank. Banking services are provided by our regulated partner banks globally. 
+              Investment and wealth management products are not FDIC insured, are not bank guaranteed, and may lose value. Multi-layered encryption protocols ensure all digital assets are protected.
+            </p>
+            <p style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
+              <span>© {new Date().getFullYear()} Trust Transfer Global Inc. All rights reserved.</span>
+              <span style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><Lock size={14} /> 256-bit Secure SSL Connection</span>
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

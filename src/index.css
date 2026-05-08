@@ -6,8 +6,8 @@
   --bg-card: #161B26;
   --text-primary: #F8FAFC; /* Crisp white for text */
   --text-secondary: #94A3B8; /* Soft slate grey */
-  --accent: #14B8A6; /* Premium Fintech Teal */
-  --accent-hover: #0D9488;
+  --accent: #D4AF37; /* Champagne Gold */
+  --accent-hover: #b8972e;
   --success: #10B981;
   --success-bg: rgba(16, 185, 129, 0.1);
   --border: #1E293B;
@@ -22,6 +22,29 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: #0B1120;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+button:active {
+  transform: scale(0.98);
 }
 
 .app-wrapper {
@@ -50,10 +73,12 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--bg-nav);
-  border-bottom: 1px solid var(--nav-border);
+  background: rgba(22, 27, 38, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   z-index: 100;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .brand {
@@ -147,7 +172,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-title {
   font-size: 3rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1.25rem;
   letter-spacing: -0.03em;
@@ -178,7 +203,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-title {
   font-size: 3.5rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.15;
   margin-bottom: 1.5rem;
   color: var(--text-primary);
@@ -545,22 +570,28 @@ h1, h2, h3, h4, h5, h6 {
 /* Responsive */
 @media (max-width: 768px) {
   .nav-links {
-    display: none;
+    display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: var(--bg-nav);
-    padding: 1rem;
-    border-bottom: 1px solid var(--nav-border);
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--bg-card);
+    padding: 6rem 2rem 2rem;
+    border-left: 1px solid var(--border);
+    box-shadow: -10px 0 25px rgba(0,0,0,0.5);
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 40;
   }
   .nav-links.open {
-    display: flex;
+    right: 0;
   }
   .mobile-menu-btn {
     display: block;
+    position: relative;
+    z-index: 50;
   }
   .hero-section {
     flex-direction: column;
