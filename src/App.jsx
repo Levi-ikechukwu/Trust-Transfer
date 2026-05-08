@@ -308,7 +308,7 @@ const App = () => {
                   <h3
                     style={{
                       fontSize: "2.25rem",
-                      fontWeight: 800,
+                      fontWeight: 600,
                       color: "var(--accent)",
                       marginBottom: "0.5rem",
                     }}
@@ -325,7 +325,7 @@ const App = () => {
                   <h3
                     style={{
                       fontSize: "2.25rem",
-                      fontWeight: 800,
+                      fontWeight: 600,
                       color: "var(--accent)",
                       marginBottom: "0.5rem",
                     }}
@@ -342,7 +342,7 @@ const App = () => {
                   <h3
                     style={{
                       fontSize: "2.25rem",
-                      fontWeight: 800,
+                      fontWeight: 600,
                       color: "var(--accent)",
                       marginBottom: "0.5rem",
                     }}
@@ -444,20 +444,28 @@ const App = () => {
               <div
                 className="section-container"
                 style={{
-                  padding: "5rem 3rem",
-                  background: "var(--accent)",
-                  borderRadius: "20px",
-                  color: "#0B1120",
+                  padding: "6rem 3rem",
+                  background: "linear-gradient(135deg, var(--bg-card) 0%, #082f2b 100%)",
+                  borderRadius: "24px",
+                  color: "var(--text-primary)",
                   textAlign: "center",
-                  boxShadow: "0 20px 25px -5px rgba(212, 175, 55, 0.2)",
+                  boxShadow: "0 20px 40px -10px rgba(20, 184, 166, 0.15)",
+                  border: "1px solid rgba(20, 184, 166, 0.2)",
+                  position: "relative",
+                  overflow: "hidden"
                 }}
               >
+                <div style={{ position: "absolute", top: "-50%", left: "-10%", width: "50%", height: "200%", background: "radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 70%)", transform: "rotate(30deg)", pointerEvents: "none" }} />
+                <div style={{ position: "absolute", bottom: "-50%", right: "-10%", width: "50%", height: "200%", background: "radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 70%)", transform: "rotate(-30deg)", pointerEvents: "none" }} />
+                
                 <h2
                   style={{
                     fontSize: "2.5rem",
-                    fontWeight: 700,
+                    fontWeight: 600,
                     marginBottom: "1.25rem",
-                    color: "#0B1120",
+                    color: "var(--text-primary)",
+                    position: "relative",
+                    zIndex: 1
                   }}
                 >
                   Ready to Elevate Your Security?
@@ -465,11 +473,13 @@ const App = () => {
                 <p
                   style={{
                     fontSize: "1.1rem",
-                    opacity: 0.9,
+                    color: "var(--text-secondary)",
                     marginBottom: "2.5rem",
                     maxWidth: "600px",
                     margin: "0 auto 2.5rem",
                     lineHeight: 1.6,
+                    position: "relative",
+                    zIndex: 1
                   }}
                 >
                   Join thousands of institutions and high-net-worth individuals
@@ -478,12 +488,13 @@ const App = () => {
                 <button
                   className="btn-primary"
                   style={{
-                    background: "#0B1120",
-                    color: "var(--accent)",
                     margin: "0 auto",
                     fontSize: "1.1rem",
-                    padding: "1rem 2rem",
-                    borderRadius: "8px",
+                    padding: "1rem 2.5rem",
+                    borderRadius: "12px",
+                    position: "relative",
+                    zIndex: 1,
+                    boxShadow: "0 10px 15px -3px rgba(20, 184, 166, 0.3)"
                   }}
                   onClick={() => handleNav("transfer")}
                 >
@@ -600,7 +611,7 @@ const App = () => {
               <h3
                 style={{
                   fontSize: "2rem",
-                  fontWeight: 800,
+                  fontWeight: 600,
                   textAlign: "center",
                   marginBottom: "3rem",
                   color: "var(--text-primary)",
@@ -804,7 +815,7 @@ const App = () => {
             <div className="split-section" style={{ gap: "4rem", alignItems: "flex-start" }}>
               <div className="split-content">
                 <ScrollReveal delay={100}>
-                  <h3 style={{ fontSize: "1.8rem", fontWeight: 800, marginBottom: "2rem", color: "var(--text-primary)" }}>
+                  <h3 style={{ fontSize: "1.8rem", fontWeight: 600, marginBottom: "2rem", color: "var(--text-primary)" }}>
                     Get in Touch
                   </h3>
                   <div className="service-card mb-4" style={{ display: "flex", gap: "1.5rem", alignItems: "center", padding: "1.5rem" }}>
